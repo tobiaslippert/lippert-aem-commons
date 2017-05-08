@@ -1,0 +1,6 @@
+<sly data-sly-use.textModel="com.lippert.aem.commons.core.models.TextModel">
+<div>
+    <h3 data-sly-test="${textModel.headline}">${textModel.headline}</h3>
+    <p data-sly-test="${textModel.text}">${textModel.text  @ context='html'}</p>
+</div>
+</sly>

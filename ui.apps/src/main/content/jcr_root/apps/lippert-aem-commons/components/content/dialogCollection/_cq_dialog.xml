@@ -29,21 +29,48 @@
                                     sling:resourceType="granite/ui/components/foundation/form/colorpicker"
                                     fieldLabel="Color"
                                     name="./color"/>
-                            <showButton
+                            <checkbox
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                    fieldLabel="Show Button"
-                                    name="./showButton"/>
-                            <showText
+                                    text="Show Button"
+                                    name="./showButton"
+                                    uncheckedValue="false"
+                                    fieldDescription="Check to show the button"
+                                    tooltipPosition="right"
+                                    value="true"/>
+                            <checkboxType
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                    name="./showButton@TypeHint"
+                                    value="Boolean"/>
+                            <switch
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/switch"
                                     fieldLabel="Show Text"
-                                    name="./showText"/>
-                            <showHeadline
+                                    name="./showText"
+                                    uncheckedValue="false"
+                                    onText="The text is shown"
+                                    offText="The text is not shown"
+                                    value="{Boolean}true"/>
+                            <radioGroup
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/foundation/form/radio"
+                                    sling:resourceType="granite/ui/components/foundation/form/radiogroup"
                                     fieldLabel="Show Headline"
-                                    name="./showHeadline"/>
+                                    text="Show headline"
+                                    name="./showHeadline">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <radioButton1
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/radio"
+                                            text="No"
+                                            value="false"/>
+                                    <radioButton2
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/radio"
+                                            text="Yes"
+                                            value="true"/>
+                                </items>
+                            </radioGroup>
                         </items>
                     </column>
                 </items>
@@ -67,18 +94,25 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                     fieldLabel="Headline"
-                                    name="./headline"/>
+                                    name="./headline"
+                                    autocomplete="on"
+                                    required="true"
+                                    emptyText="Enter your headline here"/>
                             <text
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-                                    fieldLabel="Richt Text"
+                                    fieldLabel="Rich Text"
                                     name="./text"
-                                    value="Please enter your text here"/>
+                                    emptyText="Please enter your text here"/>
                             <textarea
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                     fieldLabel="Text Area"
-                                    name="./textarea"/>
+                                    name="./textarea"
+                                    rows="8"
+                                    cols="5"
+                                    maxlength="200"
+                                    minlength="20"/>
                         </items>
                     </column>
                 </items>
@@ -101,13 +135,21 @@
                             <image
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                    autoStart="{Boolean}false"
                                     fieldLabel="Image"
-                                    name="./image"/>
-                            <altimage
+                                    class="cq-droptarget reenable-droptarget"
+                                    title="Drag image from sidebar"
+                                    fileNameParameter="./image/fileName"
+                                    fileReferenceParameter="./image/fileReference"
+                                    mimeTypes="[image]"
+                                    multiple="{Boolean}false"
+                                    name="./image/file"
+                                    useHTML5="{Boolean}true"/>
+                            <altImageText
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
                                     fieldLabel="Alternative Image Text"
-                                    name="./altimagetext"/>
+                                    name="./image/altImageText"/>
 
                         </items>
                     </column>
@@ -132,18 +174,53 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/datepicker"
                                     fieldLabel="Date"
-                                    name="./date"/>
+                                    name="./date"
+                                    valueFormat="YYYY-MM-DD"
+                                    minDate="2010-01-01"
+                                    maxDate="2100-12-31"/>
                             <user
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/form/userpicker"
                                     fieldLabel="User"
                                     name="./user"/>
+                            <select
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                    name="./selectResult"
+                                    emptyText=""
+                                    fieldLabel="Choose your option"
+                                    ordered="true">
+                                <items
+                                        jcr:primaryType="nt:unstructured">
+                                    <option1
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/option"
+                                            value="option1"
+                                            text="Option 1"/>
+                                    <option2
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/option"
+                                            value="option2"
+                                            text="Option 2"/>
+                                    <option3
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/option"
+                                            value="option3"
+                                            text="Option 3"/>
+                                    <option4
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/option"
+                                            value="option4"
+                                            text="Option 4"/>
+                                </items>
+                            </select>
                             <hyperlink
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/foundation/hyperlink"
                                     fieldLabel="Hyperlink"
-                                    name="./hyperlink"/>
-
+                                    name="./hyperlink"
+                                    text="Click here to visit the Adobe granite UI documentation page"
+                                    href="https://docs.adobe.com/docs/en/aem/6-2/develop/ref/granite-ui/api/jcr_root/libs/granite/ui/index.html"/>
                         </items>
                     </column>
                 </items>

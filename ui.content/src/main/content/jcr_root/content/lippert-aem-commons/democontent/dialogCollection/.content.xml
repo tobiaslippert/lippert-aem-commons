@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/apps/lippert-aem-commons/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Dialog Collection"
+        sling:resourceType="lippert-aem-commons/components/structure/page">
+        <logo
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="lippert-aem-commons/components/structure/logo"/>
+        <title
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="lippert-aem-commons/components/content/title"/>
+        <topnav
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="lippert-aem-commons/components/structure/topnav"/>
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+            <dialogCollection
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="lippert-aem-commons/components/content/dialogCollection"
+                textIsRich="true"/>
+        </par>
+    </jcr:content>
+</jcr:root>

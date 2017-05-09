@@ -4,19 +4,21 @@ import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.Date;
 
 @Model(adaptables = Resource.class)
 public class DialogCollectionModel {
 
+    @Self
+    private Resource resource;
+
     @Inject
     @Optional
     @Default(values = "Please replace this text")
     private String text;
-
 
     @Inject
     @Optional
@@ -65,10 +67,11 @@ public class DialogCollectionModel {
     @Optional
     private Date date;
 
-    /*@TODO
-    Implement Image Model
-     */
+    @Inject
+    @Optional
+    private ImageModel image;
 
+    //Getter
     public String getTextarea() {
         return textarea;
     }
@@ -113,7 +116,12 @@ public class DialogCollectionModel {
         return text;
     }
 
+    public ImageModel getImage() {
+        return image;
+    }
+
     public String getHeadline() {
         return headline;
     }
+
 }

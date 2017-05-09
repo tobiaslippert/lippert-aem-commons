@@ -1,6 +1,12 @@
-<sly data-sly-use.textModel="com.lippert.aem.commons.core.models.TextModel">
+<sly data-sly-use.dialogCollectionModel="com.lippert.aem.commons.core.models.DialogCollectionModel">
 <div>
-    <h3 data-sly-test="${textModel.headline}">${textModel.headline}</h3>
-    <p data-sly-test="${textModel.text}">${textModel.text  @ context='html'}</p>
+    <h3 data-sly-test="${dialogCollectionModel.headline}">${dialogCollectionModel.headline}</h3>
+    <p data-sly-test="${dialogCollectionModel.text}">${dialogCollectionModel.text  @ context='html'}</p>
+    <div>
+        <img alt="${dialogCollectionModel.image.altText}"
+             data-sly-test="${dialogCollectionModel.image.fileReference}"
+             data-sly-attribute.title="${dialogCollectionModel.image.title}"
+             srcset="${dialogCollectionModel.image.fileReference}" />
+    </div>
 </div>
 </sly>

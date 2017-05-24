@@ -1,0 +1,11 @@
+####Test####
+
+- group_config:
+
+  - authors:
+    - isMemberOf:
+      members:
+
+  - reviewers:
+      - isMemberOf:
+        members:
